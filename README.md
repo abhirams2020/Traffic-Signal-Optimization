@@ -22,3 +22,6 @@ It is better to install the above requirements in a virtual environment
 ## Usage
 * Clone the repository using `git clone https://github.com/Abhirams2020/Traffic-Signal-Optimization.git`
 * Run `python3 main.py` to see the results.
+
+## Results
+![alt text](/Images/Figure_1.png)
