@@ -2,7 +2,7 @@ import operator
 from presets import nodes
 import matplotlib.pyplot as plt
 
-def plot(points, path: list):
+def plot(points, path: list, solution):
     x = []
     y = []
     for point in points:
@@ -12,6 +12,8 @@ def plot(points, path: list):
     # y = list(map(operator.sub, [max(y) for i in range(len(points))], y)) 
 
     plt.plot(x, y, 'co')
+
+    plt.title('Total distance of: {:.4f}'.format(solution))
 
     for _ in range(1, len(path)):
         i = ord(path[_ - 1])-65 # to convert A,B.. to 0,1..
