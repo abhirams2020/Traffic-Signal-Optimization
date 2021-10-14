@@ -1,21 +1,23 @@
 import operator
-from presets import nodes
+from presets import cities,nodes,no_of_cities
 import matplotlib.pyplot as plt
 
-def plot(points, path: list, solution):
+def plot(cities, path: list, solution):
     x = []
     y = []
-    for point in points:
+    for point in cities:
         x.append(point[0])
         y.append(point[1])
    
+    x.append(cities[0][0])
+    y.append(cities[0][1])
     # y = list(map(operator.sub, [max(y) for i in range(len(points))], y)) 
 
     plt.plot(x, y, 'co')
 
     plt.title('Total distance of: {:.4f},  Path : {}'.format(solution,path))
 
-    for _ in range(1, len(path)):
+    for _ in range(1, no_of_cities+1):
         i = ord(path[_ - 1])-65 # to convert A,B.. to 0,1..
         j = ord(path[_])-65
         plt.arrow(x[i], y[i], x[j] - x[i], y[j] - y[i], color='r', length_includes_head=True)

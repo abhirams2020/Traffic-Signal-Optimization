@@ -44,7 +44,11 @@ class ant_colony:
             
                 
             dist += self.adjacency[current_node_index][next_node_index]
-        total_distance = dist
+        
+        # total_distance = dist
+
+        # modified total distance to add the distance back to A
+        total_distance = dist + self.adjacency[list(nodes.keys()).index(route[len(route)-1])][list(nodes.keys()).index('A')]
         return total_distance
                 
     # Function to initialise the pheremone matrix
@@ -117,7 +121,10 @@ class ant_colony:
                 if (distance < self.distance_best) and (len(route)==len(self.nodes)):
                     self.route_best, self.distance_best = route, distance
                 local_pheromone = local_pheromone + new_pheromone
-            print(route, np.round(distance,4))
+            print(route + ['A'], np.round(distance,4))
             self.pheromone = ((1-self.evaporation)*self.pheromone + local_pheromone)
-        
+
+        # appended A to the final route
+        self.route_best.append('A')
+
         return self.route_best, self.distance_best

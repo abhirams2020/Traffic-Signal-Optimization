@@ -15,5 +15,5 @@ for pt in nodes:
 print('The best route is: {}'.format(path))
 print('Total distance of: {:.4f}'.format(solution))
 # print('Cost: {:.4f}, Path: {}'.format(solution, path))
-print(points)
+print('Points : {}'.format(points))
 plot(points, path, solution)

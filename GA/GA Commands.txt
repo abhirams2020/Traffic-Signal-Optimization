@@ -1,0 +1,4 @@
+cd Desk*/Tr*/GA
+source /home/cr7/Desktop/Traffic-Signal-Optimization/GA/env/bin/activate
+python3 main.py
+python3 /home/cr7/Desktop/Traffic-Signal-Optimization/GA/main.py
