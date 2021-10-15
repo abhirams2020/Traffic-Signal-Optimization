@@ -24,4 +24,4 @@ It is better to install the above requirements in a virtual environment
 * Run `python3 main.py` to see the results.
 
 ## Results
-![alt text](/Images/Figure_1.png)
+![alt text](/ACO/Images/Figure_1.png)
