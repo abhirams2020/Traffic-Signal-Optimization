@@ -7,7 +7,7 @@ no_of_cities = len(cities)
 popSize=100
 eliteSize=20
 mutationRate=0.01
-generations=5
+generations=10
 
 # connection = [  [0,1,1,1,1],
 #                 [1,0,1,1,1],
@@ -19,6 +19,3 @@ connection = [  [0,0,1,1,1],
                 [1,1,0,1,1],
                 [1,1,1,0,0],
                 [1,1,1,0,0]]
-
-
-

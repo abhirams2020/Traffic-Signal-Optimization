@@ -38,9 +38,9 @@ class Fitness:
                     toCity = self.route[i + 1]
                 else:
                     toCity = self.route[0]
-                i = city_name.index(fromCity.st)
-                j = city_name.index(toCity.st)
-                if(connection[i][j]==0):
+                I = city_name.index(fromCity.st)
+                J = city_name.index(toCity.st)
+                if(connection[I][J]==0):
                     pathDistance = math.inf 
                 else:
                     pathDistance += fromCity.distance(toCity)
@@ -153,7 +153,7 @@ def nextGeneration(currentGen, eliteSize, mutationRate):
 
 def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
     pop = initialPopulation(popSize, population)
-    print("Initial distance: " + str(1 / rankRoutes(pop)[0][1]))
+    # print("Initial distance: " + str(1 / rankRoutes(pop)[0][1]))
     
     for i in range(0, generations):
         pop = nextGeneration(pop, eliteSize, mutationRate)

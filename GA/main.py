@@ -7,7 +7,6 @@ cityList = []
 for i in range (0,no_of_cities):
     cityList.append(City(x=int(cities[i][0]), y=int(cities[i][1])))
 
-print('Route of all the ants at the end :')
 route, solution = geneticAlgorithm(cityList, popSize, eliteSize, mutationRate, generations)
 
 points = []
