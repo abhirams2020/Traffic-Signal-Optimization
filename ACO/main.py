@@ -1,5 +1,5 @@
 from aco import ant_colony
-from presets import nodes, p, evaporation, alpha, beta, n_ants, iterations, connection
+from presets import  nodes, p, evaporation, alpha, beta, n_ants, iterations, connection
 from plot import plot
 
 points = []
@@ -9,11 +9,10 @@ problem = ant_colony(nodes, p, evaporation, alpha, beta, n_ants, iterations, con
 path, solution = problem.optimise()
 
 for pt in nodes:
-    points.append((int(nodes[pt][0]),int(nodes[pt][1])))
-    #points.append((int(nodes[1]), int(nodes[2])))
+    points.append((float(nodes[pt][0]),float(nodes[pt][1])))
 
 print('The best route is: {}'.format(path))
 print('Total distance of: {:.4f}'.format(solution))
-# print('Cost: {:.4f}, Path: {}'.format(solution, path))
+print('Cost: {:.4f}, Path: {}'.format(solution, path))
 print('Points : {}'.format(points))
-plot(points, path, solution)
+plot(nodes,points, path, solution)

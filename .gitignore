@@ -110,6 +110,7 @@ ENV/
 env.bak/
 venv.bak/
 */ACO/myenv/
+*/temp/myenv/
 
 # Spyder project settings
 .spyderproject

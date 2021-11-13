@@ -38,17 +38,16 @@ class ant_colony:
         nodes = self.nodes
         dist = 0
         for i in range(len(route)-1):
-            current_node_index = list(nodes.keys()).index(route[i])
+            current_node_index = nodes[route[i]][2]
             
-            next_node_index = list(nodes.keys()).index(route[i+1])
-            
+            next_node_index = nodes[route[i+1]][2]
                 
             dist += self.adjacency[current_node_index][next_node_index]
         
         # total_distance = dist
 
         # modified total distance to add the distance back to A
-        total_distance = dist + self.adjacency[list(nodes.keys()).index(route[len(route)-1])][list(nodes.keys()).index('A')]
+        total_distance = dist + self.adjacency[nodes[route[len(route)-1]][2]][0]
         return total_distance
                 
     # Function to initialise the pheremone matrix
@@ -89,11 +88,12 @@ class ant_colony:
         # self.route_best = self.initial_route
         self.route_best = []
         self.distance_best = math.inf
+        nodes = self.nodes
         for i in range(iterations):
             local_pheromone = np.zeros((self.adjacency.shape[0],self.adjacency.shape[0]))
             for b in range(n_ants):
                 self.initialise_route()
-                route = list(self.start_node)
+                route = [self.start_node]
                 current_node_index = self.start_node_index
                 templist = self.unvisited_nodes
                 while len(self.unvisited_nodes) != 0:
@@ -121,10 +121,10 @@ class ant_colony:
                 if (distance < self.distance_best) and (len(route)==len(self.nodes)):
                     self.route_best, self.distance_best = route, distance
                 local_pheromone = local_pheromone + new_pheromone
-            print(route + ['A'], np.round(distance,4))
+            print(route + [list(nodes)[0]], np.round(distance,4))
             self.pheromone = ((1-self.evaporation)*self.pheromone + local_pheromone)
 
         # appended A to the final route
-        self.route_best.append('A')
+        self.route_best.append(list(nodes)[0])
 
         return self.route_best, self.distance_best

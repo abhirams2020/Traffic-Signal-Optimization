@@ -1,8 +1,7 @@
 import operator
-from presets import nodes
 import matplotlib.pyplot as plt
 
-def plot(points, path: list, solution):
+def plot(nodes, points, path: list, solution):
     x = []
     y = []
     for point in points:
@@ -16,8 +15,8 @@ def plot(points, path: list, solution):
     plt.title('Total distance of: {:.4f},  Path : {}'.format(solution,path))
 
     for _ in range(1, len(path)):
-        i = ord(path[_ - 1])-65 # to convert A,B.. to 0,1..
-        j = ord(path[_])-65
+        i = nodes[path[_ - 1]][2] # to convert A,B.. to 0,1..
+        j = nodes[path[_]][2]
         plt.arrow(x[i], y[i], x[j] - x[i], y[j] - y[i], color='r', length_includes_head=True)
 
     for a,b in zip(x,y):
@@ -34,6 +33,6 @@ def plot(points, path: list, solution):
                     xytext=(0,10), # distance from text to points (x,y)
                     ha='center') # horizontal alignment can be left, right or center
 
-    plt.xlim(0, max(x) * 1.1)
-    plt.ylim(0, max(y) * 1.1)
+    plt.xlim(min(min(x),-1) * 1.5, max(x) * 1.5)
+    plt.ylim(min(min(y),-1) * 1.5, max(y) * 1.5)
     plt.show()
