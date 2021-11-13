@@ -27,8 +27,9 @@ It is better to install the above requirements in a virtual environment
 ![alt text](/ACO/Images/Figure_1.png)
 
 ## Locations used
-| AD | 42.54625  | 1.601554  |
+| Country Code | Latitude  | Longitude  |
 | -- | --------- | --------- |
+| AD | 42.54625  | 1.601554  |
 | AE | 23.42408  | 53.84782  |
 | AF | 33.93911  | 67.70995  |
 | AG | 17.06082  | \-61.7964 |
