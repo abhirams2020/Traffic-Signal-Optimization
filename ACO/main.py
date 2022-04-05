@@ -9,10 +9,10 @@ problem = ant_colony(nodes, p, evaporation, alpha, beta, n_ants, iterations, con
 path, solution = problem.optimise()
 
 for pt in nodes:
-    points.append((float(nodes[pt][0]),float(nodes[pt][1])))
+    points.append((float(nodes[pt][1]),float(nodes[pt][0])))
 
 print('The best route is: {}'.format(path))
-print('Total distance of: {:.4f}'.format(solution))
+print('Total distance of: {:.4f} km'.format(solution))
 print('Cost: {:.4f}, Path: {}'.format(solution, path))
 print('Points : {}'.format(points))
 plot(nodes,points, path, solution)

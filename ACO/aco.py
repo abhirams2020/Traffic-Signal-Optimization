@@ -1,5 +1,6 @@
 import numpy as np
 import math
+from math import radians, cos, sin, asin, sqrt
 from presets import n_ants, iterations
 
 class ant_colony:
@@ -17,10 +18,25 @@ class ant_colony:
         
     #function to calculate distance from start node to end node
     def get_distance(self, start, end):
-        x = start[0] - end[0]
-        y = start[1] - end[1]
-        dist = (x**2) + (y**2)
-        return (np.sqrt(dist))
+        # The math module contains a function named
+        # radians which converts from degrees to radians.
+        lon1 = radians(start[1])
+        lon2 = radians(end[1])
+        lat1 = radians(start[0])
+        lat2 = radians(end[0])
+        
+        # Haversine formula
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+    
+        c = 2 * asin(sqrt(a))
+        
+        # Radius of earth in kilometers. Use 3956 for miles
+        r = 6371
+        
+        # calculate the result
+        return(c * r)
 
     #Function to intialise the adjacency and visibility matrices, calculated from the input dictionary of nodes.
     def get_adjacency(self):

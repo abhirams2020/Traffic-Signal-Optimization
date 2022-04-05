@@ -12,7 +12,7 @@ def plot(nodes, points, path: list, solution):
 
     plt.plot(x, y, 'co')
 
-    plt.title('Total distance of: {:.4f},  Path : {}'.format(solution,path))
+    plt.title('Total distance of: {:.4f} km,  Path : {}'.format(solution,path))
 
     for _ in range(1, len(path)):
         i = nodes[path[_ - 1]][2] # to convert A,B.. to 0,1..
@@ -21,7 +21,7 @@ def plot(nodes, points, path: list, solution):
 
     for a,b in zip(x,y):
         for i in nodes:
-            if(nodes[i][0]==a and nodes[i][1]==b):
+            if(nodes[i][1]==a and nodes[i][0]==b):
                 pt = i
         #uncomment below line to add coordinates
         # label = pt + " ({:.1f},{:.1f})".format(a,b) 
