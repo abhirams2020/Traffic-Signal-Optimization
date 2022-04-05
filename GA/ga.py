@@ -1,5 +1,6 @@
 import numpy as np, random, operator, pandas as pd, matplotlib.pyplot as plt
 import math
+from math import radians, cos, sin, asin, sqrt
 from presets import cities, city_name, no_of_cities, connection
 
 class City:
@@ -13,10 +14,27 @@ class City:
         self.st = ch
     
     def distance(self, city):
-        xDis = abs(self.x - city.x)
-        yDis = abs(self.y - city.y)
-        distance = np.sqrt((xDis ** 2) + (yDis ** 2))
-        return distance
+        lon1 = radians(self.y)
+        lon2 = radians(city.y)
+        lat1 = radians(self.x)
+        lat2 = radians(city.x)
+        
+        # Haversine formula
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+    
+        c = 2 * asin(sqrt(a))
+        
+        # Radius of earth in kilometers. Use 3956 for miles
+        r = 6371
+        
+        # calculate the result
+        return(c * r)
+        # xDis = abs(self.x - city.x)
+        # yDis = abs(self.y - city.y)
+        # distance = np.sqrt((xDis ** 2) + (yDis ** 2))
+        # return distance
     
     def __repr__(self):
         # return "(" + str(self.x) + "," + str(self.y) + ")"
